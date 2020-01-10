@@ -5,39 +5,17 @@
   <p>{{description}}</p>
   <p *ngIf="galleries">Ilość galerii: {{galleries.length}}</p>
 
+  <input type="text" name="searchValue" [(ngModel)]="searchValue" placeholder="Szukaj" (keyup) = onSearchValue()>
+  <p>Szukam: {{searchValue}} </p>
+
   <div class="gallery">
-    <div class="row row-align-middle" *ngIf="galleries"></div>
-      <div class="grid-5 grid-centered" *ngFor="let item of galleries; trackBy:item?.galleryId"">
+    <div class="row row-align-middle" *ngIf="galleries">
+      <div class="grid-5 grid-centered" *ngFor="let item of galleries; trackBy:item?.galleryId | searchGalleries : searchValue">
         <img src='{{item.thumbUrl}}'/>
         <h3>{{item.title}}</h3>
         <p>{{item.description}}</p>
-        <p>{{item.dateCreated}}</p>
+        <p><small>{{item.dateCreated | uppercase | polishDate}}</small></p>
       </div>
-    </div>
-    <div>
-      <img src="../assets/img/gallery/2.jpg"/>
-      <h3>Turtle</h3>
-      <p><span>Kiedy:</span> 07.01.2020</p>
-    </div>
-    <div>
-      <img src="../assets/img/gallery/3.jpg"/>
-      <h3>Turtle</h3>
-      <p><span>Kiedy:</span> 20.12.2019</p>
-    </div>
-    <div>
-      <img src="../assets/img/gallery/4.jpg"/>
-      <h3>Bear</h3>
-      <p><span>Kiedy:</span> 01.01.2020</p>
-    </div>
-    <div>
-      <img src="../assets/img/gallery/5.jpg"/>
-      <h3>Dolphin</h3>
-      <p><span>Kiedy:</span> 14.02.2020</p>
-    </div>
-    <div>
-      <img src="../assets/img/gallery/6.jpg"/>
-      <h3>Fish</h3>
-      <p><span>Kiedy:</span> 26.12.2019</p>
     </div>
   </div>
 
