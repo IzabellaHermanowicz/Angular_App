@@ -12,8 +12,22 @@
     max-width: 1420px;
     margin: 0 auto;
     position: relative;
-
     padding: 0 10px 20px 10px;
 
     @include gridle_generate_classes();
+}
+
+.gallery{
+    display: grid;
+    grid-template-columns: 30% 30% 30%;
+    column-gap: 1vw;
+    row-gap: 5vh;
+}
+
+.gallery img{
+    width: 25vw;
+    height: 25vh;
+    border: 1px solid grey;
+    padding: 5px;
+    border-radius: 12px;
 }

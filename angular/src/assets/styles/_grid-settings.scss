@@ -5,8 +5,8 @@
 @include gridle_set_classname_map('grid-centered', ('grid-', '', 'centered', '@', '%state'));
 
 @include gridle_setup((
-        context: 12,
-        gutter-width: 20,
+        context: 16,
+        gutter-width: 10,
         debug: true,
         gridle-vendor-prefix: false,
         debug-show-class-names: true
@@ -32,4 +32,8 @@
 
 @include gridle_register_state(all-desktop, (
         min-width: 1025px
+));
+
+@include gridle_register_state(large, (
+        min-width: 1600px
 ));
