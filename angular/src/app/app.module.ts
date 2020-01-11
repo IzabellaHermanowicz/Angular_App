@@ -6,12 +6,18 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PolishDatePipe } from './pipes/polish-date.pipe';
 import { SearchGalleriesPipe } from './pipes/search-galleries.pipe';
+import { NavComponent } from './components/nav/nav.component';
+import { GalleriesComponent } from './components/galleries/galleries/galleries.component';
+import { GalleryItemComponent } from './components/galleries/gallery-item/gallery-item.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PolishDatePipe,
-    SearchGalleriesPipe
+    SearchGalleriesPipe,
+    NavComponent,
+    GalleriesComponent,
+    GalleryItemComponent
   ],
   imports: [
     BrowserModule,

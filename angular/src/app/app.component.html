@@ -1,23 +1,6 @@
-<nav></nav>
+<app-nav></app-nav>
 
 <section class=”container”>
-  <h1>{{title}}</h1>
-  <p>{{description}}</p>
-  <p *ngIf="galleries">Ilość galerii: {{galleries.length}}</p>
-
-  <input type="text" name="searchValue" [(ngModel)]="searchValue" placeholder="Szukaj" (keyup) = onSearchValue()>
-  <p>Szukam: {{searchValue}} </p>
-
-  <div class="gallery">
-    <div class="row row-align-middle" *ngIf="galleries">
-      <div class="grid-5 grid-centered" *ngFor="let item of galleries; trackBy:item?.galleryId | searchGalleries : searchValue">
-        <img src='{{item.thumbUrl}}'/>
-        <h3>{{item.title}}</h3>
-        <p>{{item.description}}</p>
-        <p><small>{{item.dateCreated | uppercase | polishDate}}</small></p>
-      </div>
-    </div>
-  </div>
-
+  <app-galleries></app-galleries>
 </section>
 
