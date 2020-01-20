@@ -5,25 +5,25 @@
             <h1>{{title}}</h1>
             <h5>{{description}}</h5>
             <p *ngIf="galleries">Ilość galerii: {{galleries.length}}</p>
-            <input type="text" name="searchValue" [(ngModel)]="searchValue" placeholder="Szukaj" (keyup) = onSearchValue()>
-            <p>Szukam: {{searchValue}}</p>
+            <app-gallery-search *ngIf="galleries.length"(searchValue)="setSearchValue($event)"></app-gallery-search>
         </div>
         <div class="grid-12 grid-centered">
             <div class="row row-align-middle" *ngIf="galleries">
-                <div class="grid-5 grid-centered" *ngFor="let item of galleries; trackBy:item?.galleryId | searchGalleries : searchValue">
+                <div class="grid-5 grid-centered" *ngFor="let item of galleries | searchGalleries : searchValue">
                     <div class="component-content">
                         <div class="thumb-container">
-                            <img src='{{gallery.thumbUrl}}'/>
+                            <img src='{{item.thumbUrl}}'/>
                         </div>
-                        <h3>{{gallery.title}}</h3>
-                        <p>{{gallery.description}}</p>
-                        <p><small>{{gallery.dateCreated | uppercase | polishDate}}</small></p>
+                        <h3>{{item.title}}</h3>
+                        <p>{{item.description}}</p>
+                        <p><small>{{item.dateCreated | uppercase | polishDate}}</small></p>
                     </div>
                 </div>
             </div>
 
             <app-gallery-item
-                *ngFor="let item of galleries | searchGalleries: searchValue"
+                *ngFor="let item of galleries | searchGalleries: searchValue;
+                trackBy : item?.id"
                 [gallery]="item"
                 class="grid-5 grid-centered">
             </app-gallery-item>

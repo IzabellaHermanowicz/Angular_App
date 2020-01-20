@@ -15,14 +15,17 @@ export class GalleriesComponent implements OnInit {
   searchValue: string;
 
 
-  constructor() { 
+  constructor() {}
+
+  ngOnInit() {
     this.title = 'Moje podróże';
     this.description = 'Gdzie, kiedy i czemu mnie tam wywiało';
     this.galleries = Galleries;
     this.searchValue = '';
   }
 
-  ngOnInit() {
+  setSearchValue($event){
+    this.searchValue = $event;
   }
 
 }

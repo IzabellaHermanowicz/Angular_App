@@ -1,1 +1,8 @@
-<p>gallery-item works!</p>
+<div class="component-content">
+    <h4>{{gallery.title}}</h4>
+    <p><small>{{gallery.dareCreated | polishDate | uppercase}}</small></p>
+    <div class="thumb-container">
+        <img src="{gallery.thumbUrl}">
+    </div>
+    <p class="description">{{gallery.description}}</p>
+</div>>

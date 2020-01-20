@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { IGallery } from 'src/app/interface/IGalleries';
 
 @Component({
   selector: 'app-gallery-item',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GalleryItemComponent implements OnInit {
 
+  @Input() gallery: IGallery;
+
   constructor() { }
 
   ngOnInit() {
+    console.log(this.gallery);
   }
 
 }
