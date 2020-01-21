@@ -2,7 +2,9 @@
     <h4>{{gallery.title}}</h4>
     <p><small>{{gallery.dareCreated | polishDate | uppercase}}</small></p>
     <div class="thumb-container">
-        <img src="{gallery.thumbUrl}">
+        <a routerLink="/galleries/{{gallery.galleryId}}" class="thumb-container">
+            <img src="{{gallery.thumbUrl}}">
+        </a>
     </div>
     <p class="description">{{gallery.description}}</p>
 </div>>
