@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { IGallery } from '../../../interface/IGalleries';
+import { IGallery } from '../../../interface/IGallery';
 import { Galleries } from '../../../constants/galleries.constant';
 import { HttpClient, HttpHeaders} from '@angular/common/http';
+
+//{"id":89}
 
 @Component({
   selector: 'app-galleries',
@@ -15,7 +17,7 @@ export class GalleriesComponent implements OnInit {
   galleries: IGallery[];
   searchValue: string;
 
-  httpOptions = {headers: new HttpHeaders({'Content-Type': 'application/json','Authorization': 'twój_identyfikator'})};
+  httpOptions = {headers: new HttpHeaders({'Content-Type': 'application/json','Authorization': '{"id":89}'})};
 
   constructor(private http: HttpClient) {}
 

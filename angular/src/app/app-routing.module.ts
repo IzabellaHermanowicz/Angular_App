@@ -1,6 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import {GalleriesComponent} from './components/galleries/galleries/galleries.component';
+import {GalleryComponent} from './components/galleries/gallery/gallery.component';
+import {DashboardComponent} from './components/dashboard/dashboard/dashboard.component';
+import { from } from 'rxjs';
 
 const routes: Routes = [{
   path: 'galleries',

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import {ActivatedRoute} from "@angular/router";
+import {IGallery} from "../../../interface/IGallery";
+import {Galleries} from "../../../constants/galleries.constant";
 
 @Component({
   selector: 'app-gallery',
