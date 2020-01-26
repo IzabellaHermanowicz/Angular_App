@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IGallery } from '../../../interface/IGalleries';
 import { Galleries } from '../../../constants/galleries.constant';
+import { HttpClient, HttpHeaders} from '@angular/common/http';
 
 @Component({
   selector: 'app-galleries',
@@ -14,8 +15,9 @@ export class GalleriesComponent implements OnInit {
   galleries: IGallery[];
   searchValue: string;
 
+  httpOptions = {headers: new HttpHeaders({'Content-Type': 'application/json','Authorization': 'twój_identyfikator'})};
 
-  constructor() {}
+  constructor(private http: HttpClient) {}
 
   ngOnInit() {
     this.title = 'Moje podróże';
@@ -26,6 +28,20 @@ export class GalleriesComponent implements OnInit {
 
   setSearchValue($event){
     this.searchValue = $event
+  }
+
+  exportGalleries() {
+    Galleries.forEach((gallery: IGallery)=> {
+      delete(gallery.galleryId);
+      
+      this.http.post('http://project.usagi.pl/gallery', gallery, 
+      this.httpOptions).toPromise().then((response: IGallery) => {
+        console.log('success', response);
+        this.galleries.push(response);
+      }, (errResponse) => {
+        console.log('error', errResponse);
+      });
+    });
   }
 
 }

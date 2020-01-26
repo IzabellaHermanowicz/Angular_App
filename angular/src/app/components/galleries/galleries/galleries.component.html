@@ -20,7 +20,7 @@
                     </div>
                 </div>
             </div>
-
+            <button class="button button-small" (click)="exportGalleries()">Export galleries</button>
             <app-gallery-item
                 *ngFor="let item of galleries | searchGalleries: searchValue;
                 trackBy : item?.id"
